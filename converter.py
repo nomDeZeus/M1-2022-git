@@ -11,7 +11,7 @@ def dec_to_bin(n: int) -> List[int]:
         raise ValueError("n should be positive")
 
     bit = [0 if n % 2 == 0 else 1]
-    return bit if n <= 1 else dec_to_bin(n >> 2) + bit
+    return bit if n <= 1 else dec_to_bin(n >> 1) + bit
 
 
 def bin_to_dec(bits_array: List[int]) -> int:
@@ -25,7 +25,7 @@ def bin_to_dec(bits_array: List[int]) -> int:
 
     ba = bits_array.copy()
     ba.reverse()
-    return sum([1 << i * m for i, m in enumerate(ba)])
+    return sum([(1 << i) * m for i, m in enumerate(ba)])
 
 
 def inputs_is_bits(bits_array):
